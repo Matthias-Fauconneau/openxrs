@@ -65,6 +65,7 @@ mod windows {
     pub type ID3D12CommandQueue = *mut c_void;
     pub type ID3D12Device = *mut c_void;
     pub type ID3D12Resource = *mut c_void;
+    pub type ID3D12Texture2D = *mut c_void;
     pub type D3D_FEATURE_LEVEL = i32;
 
     #[derive(Copy, Clone)]

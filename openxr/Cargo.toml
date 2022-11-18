@@ -8,7 +8,7 @@ authors = ["Benjamin Saunders <ben.e.saunders@gmail.com>"]
 categories = ["api-bindings", "rendering"]
 keywords = ["vr"]
 license = "MIT/Apache-2.0"
-edition = "2018"
+edition = "2021"
 
 [badges]
 maintenance = { status = "experimental" }
@@ -18,7 +18,7 @@ static = ["sys/static", "linked"]
 loaded = ["libloading"]
 linked = ["sys/linked"]
 mint = ["sys/mint"]
-default = ["loaded"]
+default = ["static"]
 
 [dependencies]
 sys = { package = "openxr-sys", path = "../sys", version = "0.9.3" }
@@ -26,19 +26,18 @@ libc = "0.2.50"
 libloading = { version = "0.7", optional = true }
 
 [dev-dependencies]
-ash = { version = "0.37", default-features = false, features = ["loaded"] }
-ctrlc = "3.1.5"
-wgpu = { version = "0.14.0", features = ["spirv"] }
-wgpu-hal = "0.14.0"
+fehler = "*"
+wgpu = { version = "*", features = ["spirv"] }
+wgpu-hal = "*"
+pollster = "*"
+d3d12 = "*"
+winapi = "*" #DXGI_FORMAT_*
 
 [target.'cfg(target_os = "android")'.dependencies]
 ndk-context = "0.1"
 
 [package.metadata.docs.rs]
 features = ["linked", "loaded", "mint"]
-
-[[example]]
-name = "vulkan"
 
 [[example]]
 name = "vulkan-android"

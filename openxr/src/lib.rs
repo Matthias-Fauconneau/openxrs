@@ -57,7 +57,7 @@ pub const USER_GAMEPAD: &str = "/user/gamepad";
 pub const USER_TREADMILL: &str = "/user/treadmill";
 
 // FFI helpers
-fn cvt(x: sys::Result) -> Result<sys::Result> {
+pub fn cvt(x: sys::Result) -> Result<sys::Result> {
     if x.into_raw() >= 0 {
         Ok(x)
     } else {

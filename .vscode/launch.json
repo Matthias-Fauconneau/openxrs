@@ -1,0 +1,157 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'generator'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=generator",
+                    "--package=generator"
+                ],
+                "filter": {
+                    "name": "generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'generator'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=generator",
+                    "--package=generator"
+                ],
+                "filter": {
+                    "name": "generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'openxr-sys'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=openxr-sys"
+                ],
+                "filter": {
+                    "name": "openxr-sys",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'openxr'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=openxr"
+                ],
+                "filter": {
+                    "name": "openxr",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'wgpu'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=wgpu",
+                    "--package=openxr"
+                ],
+                "filter": {
+                    "name": "wgpu",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'wgpu'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=wgpu",
+                    "--package=openxr"
+                ],
+                "filter": {
+                    "name": "wgpu",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'hello'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=hello",
+                    "--package=openxr"
+                ],
+                "filter": {
+                    "name": "hello",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'hello'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=hello",
+                    "--package=openxr"
+                ],
+                "filter": {
+                    "name": "hello",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

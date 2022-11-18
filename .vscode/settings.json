@@ -1,0 +1,13 @@
+{
+    "C_Cpp.loggingLevel": "Error",
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.allowGuestTaskControl": true,
+    "liveshare.diagnosticMode": true,
+    "liveshare.featureSet": "insiders",
+    "liveshare.increasedGuestLimit": false,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.launcherClient": "visualStudioCode",
+    "liveshare.nameTagVisibility": "Never",
+    "liveshare.publishWorkspaceInfo": true,
+    "liveshare.presence": true
+}

@@ -37,6 +37,7 @@ fn main() {
     let mut hl_out = File::create(manifest_dir.join("../openxr/src/generated.rs")).unwrap();
     write!(sys_out, "{}", parser.generate_sys()).unwrap();
     write!(hl_out, "{}", parser.generate_hl()).unwrap();
+    assert!(std::process::Command::new("rustfmt").args([manifest_dir.join("../sys/src/generated.rs"),manifest_dir.join("../openxr/src/generated.rs")]).status().unwrap().success());
 }
 
 struct Parser {
