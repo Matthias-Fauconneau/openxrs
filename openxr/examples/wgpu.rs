@@ -1,8 +1,7 @@
 use openxr as xr;
 fn main() -> xr::Result<()> {
-    std::env::set_var("XR_RUNTIME_JSON", "C:\\Users\\spadmin\\Documents\\GitHub\\openxrs\\target\\debug\\examples\\RemotingXR.json");
+    std::env::set_var("XR_RUNTIME_JSON", "RemotingXR.json");
     let xr = xr::Entry::linked();
-    //let xr = unsafe{xr::Entry::load().unwrap()};
     let available_extensions = xr.enumerate_extensions()?;
     assert!(available_extensions.khr_d3d12_enable);
     assert!(available_extensions.msft_holographic_remoting);
@@ -10,9 +9,8 @@ fn main() -> xr::Result<()> {
     enabled_extensions.khr_d3d12_enable = true;
     enabled_extensions.msft_holographic_remoting = true;
     let xr = xr.create_instance(&xr::ApplicationInfo{application_name: "IR", engine_name: "Rust", ..Default::default()}, &enabled_extensions, &[])?;
-    dbg!(xr.properties()?);
     let system = xr.system(xr::FormFactor::HEAD_MOUNTED_DISPLAY)?;
-    dbg!();
+    assert_eq!(xr::StructureType::REMOTING_CONNECT_INFO_MSFT.into_raw(), 1000065001);
     xr::cvt(unsafe{(xr.exts().msft_holographic_remoting.unwrap().remoting_connect)(xr.as_raw(), system, &xr::sys::RemotingConnectInfoMSFT {
             ty: xr::StructureType::REMOTING_CONNECT_INFO_MSFT,
             next: std::ptr::null(),
@@ -21,7 +19,7 @@ fn main() -> xr::Result<()> {
             secure_connection: false.into(),
     })}).unwrap();
     dbg!();
-    let view_type = xr::ViewConfigurationType::PRIMARY_STEREO;
+    /*let view_type = xr::ViewConfigurationType::PRIMARY_STEREO;
     let environment_blend_mode = xr.enumerate_environment_blend_modes(system, view_type)?[0];
     use pollster::FutureExt as _;
     let adapter = wgpu::Instance::new(wgpu::Backend::Dx12.into()).request_adapter(&Default::default()).block_on().unwrap();
@@ -101,5 +99,6 @@ fn main() -> xr::Result<()> {
         let rect = xr::Rect2Di {offset: xr::Offset2Di{x: 0, y: 0}, extent: xr::Extent2Di{width: width as i32, height: height as i32}};
         frame_stream.end(frame_state.predicted_display_time, environment_blend_mode, &[&xr::CompositionLayerProjection::new().space(&stage).views(&[0,1].map(|i|
             xr::CompositionLayerProjectionView::new().pose(views[i].pose).fov(views[i].fov).sub_image(xr::SwapchainSubImage::new().swapchain(&swapchain).image_array_index(i as u32).image_rect(rect))))])?;
-    }
+    }*/
+    Ok(())
 }

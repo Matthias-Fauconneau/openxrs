@@ -27,11 +27,11 @@ libloading = { version = "0.7", optional = true }
 
 [dev-dependencies]
 fehler = "*"
-wgpu = { version = "*", features = ["spirv"] }
-wgpu-hal = "*"
-pollster = "*"
-d3d12 = "*"
-winapi = "*" #DXGI_FORMAT_*
+#wgpu = { version = "*", features = ["spirv"] }
+#wgpu-hal = "*"
+#pollster = "*"
+#d3d12 = "*"
+#winapi = "*" #DXGI_FORMAT_*
 
 [target.'cfg(target_os = "android")'.dependencies]
 ndk-context = "0.1"
